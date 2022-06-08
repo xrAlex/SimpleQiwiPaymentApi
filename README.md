@@ -8,7 +8,8 @@
 
 using var client = new QiwiClient("Qiwi Secret Code");
 var billId = Guid.NewGuid().ToString(); // Уникальный идентификатор платежа
-var amount = new PaymentAmount(123M.ToString(CultureInfo.GetCultureInfo("en-US")),"RUB") //Количество и тип валюты
+var paymentSum = 123M.ToString(CultureInfo.GetCultureInfo("en-US"));
+var amount = new PaymentAmount(paymentSum,"RUB") //Количество и тип валюты
 
 var billdata = new PaymentData(billid, amount)
 {
@@ -26,7 +27,7 @@ var billdata = new PaymentData(billid, amount)
         ApiClientVersion = "v1",
         ThemeCode = "default"
     },
-    SuccessUrl = new Uri("https://husl.ru/") //URL на который будет выполнен переход с платежнйо фрмы по завршению платежа
+    SuccessUrl = new Uri("https://husl.ru/") //URL на который будет выполнен переход с платежной формы по завршению платежа
 };
 
 var bill = await client.CreatePaymentAsync(billdata); //Запрос на создание платежа
