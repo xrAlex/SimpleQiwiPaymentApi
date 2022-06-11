@@ -8,7 +8,7 @@ namespace QiwiPaymentApi.Entities
         /// Информация о количестве средств и валюте
         /// </summary>
         [JsonPropertyName("amount")]
-        public PaymentAmount Amount { get; }
+        public BillAmount Amount { get; }
 
         /// <summary>
         /// Время создания возврата
@@ -28,7 +28,7 @@ namespace QiwiPaymentApi.Entities
         [JsonPropertyName("status")]
         public string Status { get; }
 
-        public RefundData(PaymentAmount amount, DateTime dateTime, string refundId, string status)
+        public RefundData(BillAmount amount, DateTime dateTime, string refundId, string status)
         {
             Amount = amount;
             DateTime = dateTime;

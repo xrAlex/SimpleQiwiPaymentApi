@@ -26,7 +26,7 @@ namespace QiwiPaymentApi.Entities
         /// </summary>
         [JsonInclude]
         [JsonPropertyName("amount")]
-        public PaymentAmount Amount { get; internal set; }
+        public BillAmount Amount { get; internal set; }
 
         /// <summary>
         /// Данные о статусе счета
@@ -85,7 +85,7 @@ namespace QiwiPaymentApi.Entities
         public BillRequest CreateBillRequest() 
             => new (Amount, Comment, ExpirationDateTime, Customer, CustomFields);
 
-        public PaymentData(string billId, PaymentAmount amount)
+        public PaymentData(string billId, BillAmount amount)
         {
             BillId = billId;
             Amount = amount;

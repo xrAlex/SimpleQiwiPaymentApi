@@ -34,7 +34,7 @@ namespace QiwiPaymentApi.Entities
         [JsonPropertyName("customFields")]
         public CustomFields? CustomFields { get; }
 
-        public BillRequest(PaymentAmount amount, string? comment, DateTime expirationDateTime, CustomerInfo? customer, CustomFields? customFields)
+        public BillRequest(BillAmount amount, string? comment, DateTime expirationDateTime, CustomerInfo? customer, CustomFields? customFields)
         {
             Amount = amount;
             Comment = comment;

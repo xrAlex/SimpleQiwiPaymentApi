@@ -15,7 +15,7 @@ namespace QiwiPaymentApi
         /// <remarks>Если <see cref="PaymentData.SuccessUrl"/>, то преобразует полученную от сервера QIWI ссылку для редиректа по завершению платежа</remarks>
         /// <param name="paymentData">Данные платежа</param>
         /// <returns><see cref="PaymentData"/> Ответ от сервера</returns>
-        public async Task<PaymentData?> CreatePaymentAsync(PaymentData paymentData)
+        public async Task<PaymentData> CreatePaymentAsync(PaymentData paymentData)
         {
             var billRequest = paymentData.CreateBillRequest();
             var requestContent = JsonWrapper.SerializeRequest(billRequest);
@@ -37,7 +37,7 @@ namespace QiwiPaymentApi
         /// <param name="billID">Идентификатор платежа</param>
         /// <param name="refundId">Индекнтификатор возврата платежа</param>
         /// <param name="amount">Сумма возврата</param>
-        public async Task<RefundData?> CreateRefundAsync(string billID, string refundId, PaymentAmount amount)
+        public async Task<RefundData?> CreateRefundAsync(string billID, string refundId, BillAmount amount)
         {
             var requestContent = JsonWrapper.SerializeRequest(amount);
 
