@@ -45,7 +45,7 @@ namespace QiwiPaymentApi.Entities
         /// Дополнительные параметры
         /// </summary>
         [JsonPropertyName("customFields")]
-        public CustomFields? CustomFields { get; set; }
+        public Dictionary<string, string>? CustomFields { get; set; }
 
         /// <summary>
         /// Комментарий который виден на странице платежа

@@ -32,9 +32,9 @@ namespace QiwiPaymentApi.Entities
         /// Дополнительные поля
         /// </summary>
         [JsonPropertyName("customFields")]
-        public CustomFields? CustomFields { get; }
+        public Dictionary<string, string>? CustomFields { get; }
 
-        public BillRequest(BillAmount amount, string? comment, DateTime expirationDateTime, CustomerInfo? customer, CustomFields? customFields)
+        public BillRequest(BillAmount amount, string? comment, DateTime expirationDateTime, CustomerInfo? customer, Dictionary<string, string>? customFields)
         {
             Amount = amount;
             Comment = comment;
